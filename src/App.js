@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Navigation title="News Buzz"/>
-      <News/>
+      <News pageSize="11"/>
     </>
   );
 }
