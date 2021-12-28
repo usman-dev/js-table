@@ -14,7 +14,7 @@ export default class News extends Component {
     }
 
     async componentDidMount(){
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=9ba4796f37b1465bb15222ed537beeb3&page=1&pageSize=
+        let url = `https://newsapi.org/v2/top-headlines?language=en&category=${this.props.category}&apiKey=9ba4796f37b1465bb15222ed537beeb3&page=1&pageSize=
         ${this.props.pageSize}`;
         this.setState({loading: true})
         let data = await fetch(url)
@@ -32,7 +32,7 @@ export default class News extends Component {
 
         }
         else{ */
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=9ba4796f37b1465bb15222ed537beeb3&page=
+        let url = `https://newsapi.org/v2/top-headlines?language=en&category=${this.props.category}&apiKey=9ba4796f37b1465bb15222ed537beeb3&page=
         ${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         this.setState({loading: true})
         let data = await fetch(url)
@@ -47,7 +47,7 @@ export default class News extends Component {
     }
 
     handlePrev = async()=>{
-        let url = `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=9ba4796f37b1465bb15222ed537beeb3&page=
+        let url = `https://newsapi.org/v2/top-headlines?language=en&category=${this.props.category}&apiKey=9ba4796f37b1465bb15222ed537beeb3&page=
         ${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         this.setState({loading: true})
         let data = await fetch(url)
@@ -63,7 +63,7 @@ export default class News extends Component {
     render() {
         return (
             <div className="container my-4">
-                <h1 className="text-center">News Buzz - Top Technology Updates!</h1>
+                <h1 className="text-center" style={{margin: '40px 0px'}}>News Buzz - Top Technology Updates!</h1>
                 {this.state.loading && <Spinner/>}
                 <div className="row">
                     {!this.state.loading && this.state.articles.map((element)=>{
