@@ -16,6 +16,7 @@ function App() {
     <>
       <Router>
         <Navigation/>
+
           <Routes>
             <Route path="/" element={<News pageSize="11" category="general"/>} />
             <Route path="/business" element={<News pageSize="11" category="business"/>} />
